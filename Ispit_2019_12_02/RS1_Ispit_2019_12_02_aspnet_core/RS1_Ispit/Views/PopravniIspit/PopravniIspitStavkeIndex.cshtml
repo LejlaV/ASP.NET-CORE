@@ -1,0 +1,64 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model PopravniIspitStavkeIndexVM
+@{
+    ViewData["Title"] = "PopravniIspitStavkeIndex";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ucenik</th>
+            <th>Odjeljenje</th>
+            <th>Broj u dnevniku</th>
+            <th>Pristupio ispitu</th>
+            <th>Rezultat ispita</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Rows)
+        {
+            <tr>
+                <td>@x.Ucenik</td>
+                <td>@x.Odjeljenje</td>
+                <td>@x.BrojUDnevniku</td>
+                <td>
+                    <a asp-controller="PopravniIspit" asp-action="PristupIspitu"
+                       asp-route-PopravniIspitStavkeID="@x.PopravniIspitStavkeID"
+                       ajax-poziv="da" ajax-rezultat="ajaxDiv">@x.Pristupio</a>
+                </td>
+                <td>
+                    <input type="text" name="" data-recordid="@x.PopravniIspitStavkeID"
+                           value="@x.Rezultat" class="ajaxOcjena" />
+                </td>
+                <td>
+                <td>
+                    <a asp-controller="PopravniIspit" asp-action="Edit"
+                       asp-route-PopravniIspitStavkeID="@x.PopravniIspitStavkeID"
+                       ajax-poziv="da" ajax-rezultat="ajaxDiv" class="btn btn-primary">Uredi</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function (parameters) {
+        $(".ajaxOcjena").change(function () {
+            var bodovi = $(this).val();
+            var ISPId = $(this).attr('data-recordid');
+            var urlZaPoziv = "/PopravniIspit/SaveEdit?PopravniIspitStavkeID=" + ISPId + "&Bodovi=" + bodovi;
+
+            $.ajax({
+                type: "POST",
+                url: urlZaPoziv,
+                success: function (data) {
+                    $(".ajaxOcjena").html(data);
+                }
+            });
+        });
+
+    });
+</script>
+

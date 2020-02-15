@@ -1,0 +1,40 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model IspitIndexVM
+@{
+    ViewData["Title"] = "IspitIndex";
+}
+
+<h2>Prikaz ispitnih termina</h2>
+<h3>Predmet: @Model.Predmet</h3>
+<h3>Nastavnik: @Model.Nastavnik</h3>
+<h3>Akademska godina: @Model.AkademskaGodina</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Datum ispita</th>
+            <th>Broj studenta koji nisu polozili predmet</th>
+            <th>Broj prijavljenih studenata</th>
+            <th>Evidentirani rezultati</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Rows)
+        {
+            <tr>
+                <td>@x.Datum</td>
+                <td>@x.BrojStudenataNisuPolozili</td>
+                <td>@x.BrojStudenataPrijavljeno</td>
+                <td>@x.Zakljuceno</td>
+                <td>
+                    <a asp-controller="Ispit" asp-action="Detalji"
+                       asp-route-IspitID="@x.IspitID" class="btn btn-primary">Detalji</a>
+                    <a asp-controller="Ispit" asp-action="Zakljucaj"
+                       asp-route-IspitID="@x.IspitID" class="btn btn-info">Zakljucaj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Ispit" asp-action="Add"
+   asp-route-AngazovanID="@Model.AngazovanID" class="btn btn-success">Dodaj</a>

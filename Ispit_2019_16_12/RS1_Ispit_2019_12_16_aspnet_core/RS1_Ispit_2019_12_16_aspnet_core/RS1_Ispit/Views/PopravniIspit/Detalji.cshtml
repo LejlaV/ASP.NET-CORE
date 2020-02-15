@@ -1,0 +1,49 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model PopravniIspitDetaljiVM
+@{
+    ViewData["Title"] = "Detalji";
+}
+
+<h2>Detalji popravnog ispita</h2>
+<form class="form-group">
+    <div class="form-group">
+
+        <input asp-for="@Model.PopravniIspitID" hidden />
+       
+        <label>1. Član komisije</label>
+        <input asp-for="@Model.Nastavnik1" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>2. Član komisije</label>
+        <input asp-for="@Model.Nastavnik2" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>3. Član komisije</label>
+        <input asp-for="@Model.Nastavnik3" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>Datum</label>
+        <input type="text" asp-for="@Model.Datum" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>Skolska godina</label>
+        <input asp-for="@Model.SkolskaGodina" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>Skola</label>
+        <input asp-for="@Model.Skola" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label>Predmet</label>
+        <input asp-for="@Model.Predmet" class="form-control" readonly />
+    </div>
+</form>
+
+<div id="ajaxDiv"></div>
+
+<script>
+	$.get("/PopravniIspit/PopravniIspitStavkeIndex?PopravniIspitID=@Model.PopravniIspitID",
+		function (result, status) {
+			$("#ajaxDiv").html(result);
+		});
+</script>

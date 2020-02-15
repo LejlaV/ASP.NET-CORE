@@ -1,0 +1,69 @@
+﻿@using Ispit.Web.ViewModels
+@model DogadjajiIndexVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="alert alert-warning" role="alert">
+    <strong>Događaj "ISPIT RS1" - 13.02.2018.</strong> <br />
+    Ovo je podsjetnik za obavezu "Pregledati pdf materijale". Označi kao <a href="/OznaceniDogadaji/OznaciProcitano" class="">pročitanu.</a>
+</div>
+
+<h2>Neoznačeni događaji</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Nastavnik</th>
+            <th>Opis</th>
+            <th>Broj obaveza</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var x in Model.Neoznaceni)
+	   {
+        <tr>
+            <td>@x.Datum</td>
+            <td>@x.Nastavnik</td>
+            <td>@x.Opis</td>
+            <td>@x.BrojObaveza</td>
+            <td>
+                <a asp-controller="OznaceniDogadaji" asp-action="Dodaj" asp-route-DogadjajID="@x.DogadjajID"
+                   class="btn btn-success">Dodaj</a>
+            </td>
+        </tr>
+	   }
+    </tbody>
+</table>
+<br />
+<hr />
+<br />
+
+<h2>Označeni događaji</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Nastavnik</th>
+            <th>Opis</th>
+            <th>Relizovano obaveza RO</th>
+            <th>Akcija</th>
+</thead>
+    <tbody>
+       @foreach (var x in Model.Oznaceni)
+	   {
+        <tr>
+            <td>@x.Datum</td>
+            <td>@x.Nastavnik</td>
+            <td>@x.Opis</td>
+            <td>@x.Realizovano</td>
+            <td>
+                <a asp-controller="OznaceniDogadaji" asp-action="Detalji" asp-route-DogadjajID="@x.DogadjajID"
+                   class="btn btn-primary">Detalji</a>
+            </td>
+        </tr>
+	   }
+    </tbody>
+</table>

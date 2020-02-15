@@ -1,0 +1,14 @@
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\bin\Debug\netcoreapp2.0\appsettings.Development.json
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\bin\Debug\netcoreapp2.0\appsettings.json
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\bin\Debug\netcoreapp2.0\bundleconfig.json
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\bin\Debug\netcoreapp2.0\Properties\launchSettings.json
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\bin\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.deps.json
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\bin\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.runtimeconfig.json
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\bin\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.runtimeconfig.dev.json
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\bin\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.dll
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\bin\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.pdb
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\obj\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.csprojAssemblyReference.cache
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\obj\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.AssemblyInfoInputs.cache
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\obj\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.AssemblyInfo.cs
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\obj\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.dll
+C:\Users\User\Downloads\Razvoj-softvera-1-master\11_09_2017_PocetniProjekt\Ispit_2017_09_11_DotnetCore\obj\Debug\netcoreapp2.0\Ispit_2017_09_11_DotnetCore.pdb

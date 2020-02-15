@@ -1,0 +1,107 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model PopravniIspitStavkeIndexVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ucenik</th>
+            <th>Odjeljenje</th>
+            <th>Broj u dnevniku</th>
+            <th>Pristup ispitu</th>
+            <th>Rezultat</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Rows)
+        {
+        <tr>
+            <td>@x.Ucenik</td>
+            <td>@x.Odjeljenje</td>
+            <td>@x.BrojUDnevniku</td>
+
+            @if (x.Rezultat == null)
+            {
+                <td>
+                    <a asp-controller="PopravniIspitStavke" asp-action="PristupIspitu"
+                       asp-route-PopravniIspitStavkeID="@x.PopravniIspitStavkeID"
+                       ajax-poziv="da" ajax-rezultat="ajaxDiv"
+                       class="btn btn-info">@x.PristupIspitu</a>
+                </td>
+            }
+            else if (x.Rezultat == 0)
+            {
+                <td>Nema pravo pristupa ispitu</td>
+            }
+            else
+            {
+                <td>@x.PristupIspitu</td>
+            }
+            @if (x.Rezultat == null && x.PristupIspitu == "DA")
+            {
+                <td>
+                    <input type="text" value="@x.Rezultat"
+                           data-recordid="@x.PopravniIspitStavkeID" class="ajaxBodovi" />
+                </td>
+            }
+            else if (x.Rezultat == null && x.PristupIspitu == "NE")
+            {
+                <td>
+                    x
+                </td>
+            }
+            else
+            {
+                <td>@x.Rezultat</td>
+            }
+            @if (x.Rezultat == null && x.PristupIspitu == "DA")
+            {
+                <td>
+                    <a asp-controller="PopravniIspitStavke" asp-action="Edit"
+                       asp-route-PopravniIspitStavkeID="@x.PopravniIspitStavkeID"
+                       ajax-poziv="da" ajax-rezultat="ajaxDiv" class="btn btn-primary">Uredi</a>
+                </td>
+			}
+			else
+			{
+                <td></td>
+			}
+        </tr>
+        }
+    </tbody>
+</table>
+
+    <script>
+		$(".ajaxBodovi").change(function () {
+			var bodovi = $(this).val();
+			var IspitID = $(this).attr('data-recordid');
+			var urlZaPoziv = "/PopravniIspitStavke/Save?PopravniIspitStavkeID=" + IspitID + "&Bodovi=" + bodovi;
+
+             $.ajax({
+            type: "POST",
+            url: urlZaPoziv,
+            success: function (data) {
+                $(".ajaxBodovi").html(data);
+            }
+			 });
+
+		});
+    </script>
+<script>
+	$(".ajaxBodovi").change(function () {
+		var bodovi = $(this).val();
+		var IspitID = $(this).attr('data-recordid');
+		var urlZaPoziv = "/PopravniIspitStavke/Save?PopravniIspitStavkeID=" + IspitID + "&Bodovi=" + bodovi;
+
+		$.ajax({
+			type: "POST",
+			url: urlZaPoziv,
+			success: function (data) {
+				$(".ajaxBodovi").html(data);
+			}
+		});
+	});
+    </script>

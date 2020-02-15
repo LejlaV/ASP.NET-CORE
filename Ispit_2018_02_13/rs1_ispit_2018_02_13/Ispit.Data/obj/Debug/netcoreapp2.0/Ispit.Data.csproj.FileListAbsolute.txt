@@ -1,0 +1,25 @@
+C:\Users\Adil Joldic\Source\Repos\rs1_ispit_2018_02_13\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.deps.json
+C:\Users\Adil Joldic\Source\Repos\rs1_ispit_2018_02_13\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.dll
+C:\Users\Adil Joldic\Source\Repos\rs1_ispit_2018_02_13\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.pdb
+C:\Users\Adil Joldic\Source\Repos\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.csprojResolveAssemblyReference.cache
+C:\Users\Adil Joldic\Source\Repos\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.csproj.CoreCompileInputs.cache
+C:\Users\Adil Joldic\Source\Repos\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfoInputs.cache
+C:\Users\Adil Joldic\Source\Repos\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfo.cs
+C:\Users\Adil Joldic\Source\Repos\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.dll
+C:\Users\Adil Joldic\Source\Repos\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.pdb
+D:\Users\adil\Downloads\rs1_ispit_2018_02_13\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.deps.json
+D:\Users\adil\Downloads\rs1_ispit_2018_02_13\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.dll
+D:\Users\adil\Downloads\rs1_ispit_2018_02_13\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.pdb
+D:\Users\adil\Downloads\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.csproj.CoreCompileInputs.cache
+D:\Users\adil\Downloads\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfoInputs.cache
+D:\Users\adil\Downloads\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfo.cs
+D:\Users\adil\Downloads\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.dll
+D:\Users\adil\Downloads\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.pdb
+C:\Users\User\Downloads\Ispiti\Ispit_2018_02_13\rs1_ispit_2018_02_13\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.deps.json
+C:\Users\User\Downloads\Ispiti\Ispit_2018_02_13\rs1_ispit_2018_02_13\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.dll
+C:\Users\User\Downloads\Ispiti\Ispit_2018_02_13\rs1_ispit_2018_02_13\Ispit.Data\bin\Debug\netcoreapp2.0\Ispit.Data.pdb
+C:\Users\User\Downloads\Ispiti\Ispit_2018_02_13\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.csprojAssemblyReference.cache
+C:\Users\User\Downloads\Ispiti\Ispit_2018_02_13\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfoInputs.cache
+C:\Users\User\Downloads\Ispiti\Ispit_2018_02_13\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.AssemblyInfo.cs
+C:\Users\User\Downloads\Ispiti\Ispit_2018_02_13\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.dll
+C:\Users\User\Downloads\Ispiti\Ispit_2018_02_13\rs1_ispit_2018_02_13\Ispit.Data\obj\Debug\netcoreapp2.0\Ispit.Data.pdb

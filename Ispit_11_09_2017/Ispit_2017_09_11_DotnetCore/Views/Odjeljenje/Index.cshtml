@@ -1,0 +1,43 @@
+﻿@using Ispit_2017_09_11_DotnetCore.ViewModels
+@model OdjeljenjeIndexVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="text-center">Prikaz odjeljenja</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Skolska godina</th>
+            <th>Razred</th>
+            <th>Oznaka</th>
+            <th>Razrednik</th>
+            <th>Prebaceni u visi razred</th>
+            <th>Prosjek</th>
+            <th>Najbolji ucenik</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Rows)
+		{
+        <tr>
+            <td>@x.SkolskaGodina</td>
+            <td>@x.Razred</td>
+            <td>@x.Oznaka</td>
+            <td>@x.Razrednik</td>
+            <td>@x.SkolskaGodina</td>
+            <td>@x.Prebaceni</td>
+            <td>@x.Prosjek</td>
+            <td>@x.NajboljiUcenik</td>
+            <td>
+                <a asp-controller="Odjeljenje" asp-action="Detalji"
+                   asp-route-OdjeljenjeID="@x.OdjeljenjeID" class="btn btn-primary">Detalji</a>
+                <a asp-controller="Odjeljenje" asp-action="Obrisi"
+                   asp-route-OdjeljenjeID="@x.OdjeljenjeID" class="btn btn-danger">Obrisi</a>
+            </td>
+        </tr>
+		}
+    </tbody>
+    </table>
+<a asp-controller="Odjeljenje" asp-action="Add" class="btn btn-success">Dodaj</a>

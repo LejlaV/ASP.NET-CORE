@@ -1,0 +1,31 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model OdrzanaNastavaDetaljiVM
+@{
+    ViewData["Title"] = "Detalji";
+}
+
+<h2>Detalji casa</h2>
+<form class="form-group">
+    <input asp-for="@Model.OdrzaniCasID" hidden>
+    <div class="form-group">
+        <label>Datum</label>
+        <input asp-for="@Model.Datum" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Skola/Odjeljenje/Predmet</label>
+        <input asp-for="@Model.PredajePredmet" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Sadrzaj</label>
+        <input asp-for="@Model.Sadrzaj" class="form-control" readonly>
+    </div>
+</form>
+
+<div id="ajaxDiv" style="border: 1px black">
+    </div>
+<script>
+	$.get("/OdrzaniCasDetalji/Index?OdrzaniCasID=@Model.OdrzaniCasID",
+		function (result, status) {
+			$("#ajaxDiv").html(result);
+		});
+</script>

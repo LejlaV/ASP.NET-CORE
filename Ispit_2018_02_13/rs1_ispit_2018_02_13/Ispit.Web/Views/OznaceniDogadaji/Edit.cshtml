@@ -1,0 +1,36 @@
+﻿@using Ispit.Web.ViewModels
+@model StanjeObavezeEditVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Evidentiranje stanja obaveza</h2>
+<form id="formaSnimanje" method="post" class="form-group">
+
+    <input asp-for="@Model.StanjeObavezeID" hidden>
+
+    <div class="form-group">
+        <label>Obaveza</label>
+        <input asp-for="@Model.Obaveza" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Zavrseno procentualno</label>
+        <input type="text" asp-for="@Model.ZavrsenoProcentualno" class="form-control">
+    </div>
+</form>
+
+<input id="buttonSnimanje" value="Sacuvaj" type="submit" class="btn btn-success"/>
+<script>
+    $("#buttonSnimanje").click(function (event) {
+        var forma = $("#formaSnimanje");
+
+        $.ajax({
+            data: forma.serialize(),
+            type: "POST",
+            url: '/OznaceniDogadaji/Save',
+            success: function (result) {
+                $("#ajaxDiv").html(result);
+            }
+        });
+    });
+</script>

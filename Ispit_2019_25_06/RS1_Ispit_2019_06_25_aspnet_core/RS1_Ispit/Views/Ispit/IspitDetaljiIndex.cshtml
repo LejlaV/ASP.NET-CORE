@@ -1,0 +1,73 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model IspitDetaljiIndexVM
+@{
+    ViewData["Title"] = "IspitDetaljiIndex";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Pristupio ispitu</th>
+            <th>Ocjena</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Rows)
+        {
+        <tr>
+            <td>@x.Student</td>
+            <td>
+                <a asp-controller="Ispit" asp-action="Pristupio"
+                   asp-route-IspitDetaljiID="@x.IspitDetaljiID"
+                   ajax-poziv="da" ajax-rezultat="ajaxDiv">@x.Pristupio</a>
+            </td>
+            @if (x.Pristupio == "DA")
+            {
+        <td>
+            <input type="text" name="" value="@x.Ocjena" data-recordid="@x.IspitDetaljiID" class="ajaxOcjena" />
+        </td>
+            }
+            else
+            {
+                <td> </td>
+
+            }
+            @if (x.Pristupio == "DA")
+            {
+                <td>
+                    <a asp-controller="Ispit" asp-action="Edit"
+                       asp-route-IspitDetaljiID="@x.IspitDetaljiID"
+                       ajax-poziv="da" ajax-rezultat="ajaxDiv" class="btn btn-primary">Uredi</a>
+                </td>
+            }
+            else
+            {
+                <td> </td>
+
+            }
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Ispit" asp-action="IspitDetaljiAdd"
+   asp-route-IspitID="@Model.IspitID" class="btn btn-success">Dodaj</a>
+
+<script>
+	$(document).ready(function (parameters) {
+		$(".ajaxOcjena").change(function () {
+			var bodovi = $(this).val();
+			var id = $(this).attr('data-recordid');
+			var urlZaPoziv = "/Ispit/SaveEdit?IspitDetaljiID=" + id + "&Ocjena=" + bodovi;
+		$.ajax({
+			type: "POST",
+			url: urlZaPoziv,
+			success: function (data) {
+				$(".ajaxOcjena").html(data);
+			}
+		});
+		});
+		});
+</script>

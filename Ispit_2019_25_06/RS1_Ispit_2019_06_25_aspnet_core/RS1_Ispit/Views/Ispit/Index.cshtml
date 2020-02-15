@@ -1,0 +1,41 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model AngazovanIndexVM 
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Prikaz Predmet | Nastavnik | Akademska godina</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Naziv predmeta</th>
+            <th>Akademska godina</th>
+            <th>Ime i prezime nastavnika</th>
+            <th>Broj odrzanih casova</th>
+            <th>Broj studenata na predmetu</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Rows.GroupBy(y => y.Predmet))
+        {
+            <tr>
+                <td>@x.Key</td>
+            </tr>
+            @foreach (var y in x)
+            {
+                <tr>
+                    <td></td>
+                    <td>@y.AkademskaGodina</td>
+                    <td>@y.Nastavnik</td>
+                    <td>@y.BrojOdrzanihCasova</td>
+                    <td>@y.BrojStudenataNaPredmetu</td>
+                    <td>
+                        <a asp-controller="Ispit" asp-action="IspitIndex" 
+                           asp-route-AngazovanID="@y.AngazovanID" class="btn btn-primary">Odaberi</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

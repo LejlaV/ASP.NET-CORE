@@ -1,0 +1,34 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model PopravniIspitIndexVM
+@{
+    ViewData["Title"] = "PopravniIspitIndex";
+}
+
+<h2>Popravni ispiti za odjeljenje @Model.Oznaka @Model.Skola  @Model.SkolskaGodina</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Datum popravnog ispita</th>
+            <th>Predmet</th>
+            <th>Broj ucenika na popravnom ispitu</th>
+            <th>Broj ucenika koji su polozili popravni ispit</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Rows)
+        {
+            <tr>
+                <td>@x.Datum</td>
+                <td>@x.Predmet</td>
+                <td>@x.BrojUcenika</td>
+                <td>@x.BrojUcenikaPolozeno</td>
+                <td><a asp-controller="PopravniIspit" asp-action="Detalji"
+   asp-route-PopravniIspitID="@x.PopravniIspitID" class="btn btn-primary">Detalji</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="PopravniIspit" asp-action="Add"
+   asp-route-OdjeljenjeID="@Model.OdjeljenjeID" class="btn btn-success">Dodaj</a>

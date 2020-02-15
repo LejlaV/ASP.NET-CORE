@@ -1,0 +1,33 @@
+﻿@using Ispit.Web.ViewModels
+@model StanjeObavezaIndexVM
+@{
+    ViewData["Title"] = "StanjeObavezaIndex";
+}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Naziv</th>
+                <th>Procenat realizacije obaveze</th>
+                <th>Salji notifikaciju x dana unaprijed</th>
+                <th>Ponavljaj notifikaciju svaki dan do pocetka dogadjaja</th>
+                <th>Akcija</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Rows)
+            {
+                <tr>
+                    <td>@x.Naziv</td>
+                    <td>@x.ProcenatRealizacije</td>
+                    <td>@x.BrojacNotifikacije</td>
+                    <td>@x.PonavljajNotifikaciju</td>
+                    <td>
+                        <a asp-controller="OznaceniDogadaji" asp-action="Edit" 
+                           asp-route-StanjeObavezeID="@x.StanjeObavezaID"
+                           ajax-poziv="da" ajax-rezultat="ajaxDiv" class="btn btn-primary">Uredi</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

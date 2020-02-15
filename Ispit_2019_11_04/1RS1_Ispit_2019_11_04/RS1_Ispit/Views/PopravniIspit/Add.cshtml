@@ -1,0 +1,38 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model PopravniIspitAddVM
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h2>Dodavanje popravnog ispita</h2>
+<form asp-controller="PopravniIspit" asp-action="Save" method="post" class="form-group">
+    <input asp-for="@Model.PredmetID" hidden>
+    <input asp-for="@Model.PopravniIspitID" hidden>
+
+    <div class="form-group">
+        <label>Predmet</label>
+        <input asp-for="@Model.PredmetNaziv" class="form-control" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>Razred</label>
+        <input asp-for="@Model.Razred" class="form-control" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>Datum</label>
+        <input asp-for="@Model.Datum" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>Skola</label>
+        <select asp-for="@Model.SkolaID" asp-items="@Model.Skola" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Skolaska godina</label>
+        <select asp-for="@Model.SkolskaGodinaID" asp-items="@Model.SkolskaGodina" class="form-control"></select>
+    </div>
+
+    <input type="submit" value="Dodaj" class="btn btn-success">
+</form>

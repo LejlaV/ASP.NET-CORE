@@ -1,0 +1,21 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model IspitDetaljiAddVM
+@{
+    ViewData["Title"] = "IspitDetaljiAdd";
+}
+
+<h2>Dodavanje studenta na ispit</h2>
+<form class="form-group" asp-controller="Ispit" asp-action="IspitDetaljiSave" method="post">
+    <input asp-for="@Model.IspitDetaljiID" hidden />
+    <input asp-for="@Model.IspitID" hidden />
+    <div class="form-group">
+        <label>Student</label>
+        <select asp-for="@Model.StudentID" asp-items="@Model.Studenti" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label>Ocjena</label>
+        <input type="text" asp-for="@Model.Ocjena" class="form-control" />
+    </div>
+    <input type="submit" value="Dodaj" class="btn btn-success"/>
+</form>
+

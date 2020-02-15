@@ -1,0 +1,20 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model IspitDetaljiEditVM
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Uređivanje detalja na ispitu</h2>
+<form class="form-group" asp-controller="Ispit" asp-action="SaveEdit" 
+      ajax-poziv="da" ajax-rezultat="da" method="post">
+    <input asp-for="@Model.IspitDetaljiID" hidden />
+    <div class="form-group">
+        <label>Student</label>
+        <input type="text" asp-for="@Model.Student" class="form-control" readonly/>
+    </div>
+    <div class="form-group">
+        <label>Ocjena</label>
+        <input type="text" asp-for="@Model.Ocjena" class="form-control" />
+    </div>
+    <input type="submit" value="Sacuvaj" class="btn btn-success" />
+</form>

@@ -1,0 +1,38 @@
+﻿@using Ispit_2017_09_11_DotnetCore.ViewModels
+@model OdjeljenjeDetaljiVM
+@{
+    ViewData["Title"] = "Detalji";
+}
+
+<h2>Novo odjeljenje</h2>
+<form class="form-group">
+    <input asp-for="@Model.OdjeljenjeID" hidden>
+    <div class="form-group">
+        <label>Skolska godina</label>
+        <input type="text" asp-for="@Model.SkolskaGodina" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Razred</label>
+        <input type="text" asp-for="@Model.Razred" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Oznaka</label>
+        <input type="text" asp-for="@Model.Oznaka" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Razrednik</label>
+        <input type="text" asp-for="@Model.Razrednik" class="form-control" readonly>
+    </div>
+    <div class="form-group">
+        <label>Broj predmeta</label>
+        <input type="text" asp-for="@Model.BrojPredmeta" class="form-control" readonly>
+    </div>
+</form>
+
+<div id="ajaxDiv"></div>
+<script>
+	$.get("/Odjeljenje/OdjeljenjeStavkeIndex?OdjeljenjeID=@Model.OdjeljenjeID",
+		function (result, status) {
+			$("#ajaxDiv").html(result);
+		});
+</script>
