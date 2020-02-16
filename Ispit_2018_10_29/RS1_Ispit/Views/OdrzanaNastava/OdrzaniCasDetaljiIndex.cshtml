@@ -1,0 +1,73 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model OdrzaniCasDetaljiIndexVM
+@{
+    ViewData["Title"] = "OdrzaniCasDetaljiIndex";
+}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ucenik</th>
+                <th>Ocjena</th>
+                <th>Prisutan</th>
+                <th>Opravdano odsutan</th>
+                <th>Akcija</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Rows)
+            {
+            <tr>
+                <td>@x.Ucenik</td>
+
+                @if (x.Prisutan == "Prisutan")
+                {
+                    <td>
+                        <input type="text" value="@x.Ocjena" data-recordid="@x.OdrzaniCasDetaljiID"
+                               class="ajaxOcjena"/>
+                    </td>
+                }
+                else
+                {
+                    <td> </td>
+                }
+            <td>
+                <a asp-controller="OdrzanaNastava" asp-action="Prisutan"
+                   asp-route-OdrzaniCasDetaljiID="@x.OdrzaniCasDetaljiID"
+                   ajax-poziv="da" ajax-rezultat="ajaxDiv">@x.Prisutan</a>
+            </td>
+                @if (x.Prisutan == "Odsutan")
+                {
+                    <td>@x.OpravdanoOdsutan</td>
+                }
+                else
+                {
+                    <td> </td>
+                }
+            <td>
+                <a asp-controller="OdrzanaNastava" asp-action="OdrzaniCasDetaljiEdit"
+                   asp-route-OdrzaniCasDetaljiID="@x.OdrzaniCasDetaljiID" 
+                   ajax-poziv="da" ajax-rezultat="ajaxDiv" class="btn btn-primary">Uredi</a>
+            </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+<script>
+    $(document).ready(function () {
+		$(".ajaxOcjena").change(function () {
+			var id = $(this).attr('data-recordid');
+			var ocjena = $(this).val();
+			var urlZaPoziv = "/OdrzanaNastava/OdrzaniCasDetaljiSave?OdrzaniCasDetaljiID=" + id + "&Ocjena=" + ocjena;
+
+			$.ajax({
+				type: "POST",
+				url: urlZaPoziv,
+				success: function (data) {
+					$(".ajaxOcjena").html(data);
+				}
+			});
+		});
+});
+</script>
