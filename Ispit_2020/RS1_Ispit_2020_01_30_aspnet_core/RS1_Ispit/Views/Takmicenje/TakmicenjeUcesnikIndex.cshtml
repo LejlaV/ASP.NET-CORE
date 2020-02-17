@@ -1,0 +1,77 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model TakmicenjeUcesnikIndexVM
+@{
+    ViewData["Title"] = "TakmicenjeUcesnikIndex";
+}
+
+<table class="table" ajax-poziv="da" ajax-rezultat="ajaxDiv">
+    <thead>
+        <tr>
+            <th>Odjeljenje</th>
+            <th>Broj u dnevniku</th>
+            <th>Pristupio</th>
+            <th>Rezultat (broj bodova)</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Rows)
+        {
+        <tr>
+            <td>@x.Odjeljenje</td>
+            <td>@x.BrojUDnevniku</td>
+            <td>
+                <a asp-controller="Takmicenje" asp-action="Pristupio"
+                   asp-route-TakmicenjeUcesnikID="@x.TakmicenjeUcesnikID"
+                   ajax-poziv="da" ajax-rezultat="ajaxDiv">@x.Pristupio</a>
+            </td>
+            @if (x.Pristupio == "DA")
+            {
+                <td>
+                    <input type="text" value="@x.Bodovi" data-recordid="@x.TakmicenjeUcesnikID"
+                           class="ajaxOcjena" />
+                </td>
+            }
+            else
+            {
+                <td>
+                    X
+                </td>
+            }
+            @if (x.Pristupio == "DA")
+            {
+                <td>
+                    <a asp-controller="Takmicenje" asp-action="Edit"
+                       asp-route-TakmicenjeUcesnikID="@x.TakmicenjeUcesnikID"
+                       ajax-poziv="da" ajax-rezultat="ajaxDiv" class="btn  btn-primary">Uredi</a>
+                </td>
+			}
+			else
+			{
+                <td> </td>
+			}
+        </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Takmicenje" asp-action="UcesnikAdd"
+   asp-route-TakmicenjeID="@Model.TakmicenjeID"
+   ajax-poziv="da" ajax-rezultat="ajaxDiv" class="btn  btn-success">Dodaj</a>
+
+<script>
+    $(document).ready(function () {
+		$(".ajaxOcjena").change(function () {
+			var id = $(this).attr('data-recordid');
+			var bodovi = $(this).val();
+			var urlZaPoziv = "/Takmicenje/SaveEdit?TakmicenjeUcesnikID=" + id + "&Bodovi=" + bodovi;
+
+			$.ajax({
+				type: "POST",
+				url: urlZaPoziv,
+				success: function (data) {
+					$(".ajaxOcjena").html(data);
+				}
+			});
+		});
+});
+</script>
