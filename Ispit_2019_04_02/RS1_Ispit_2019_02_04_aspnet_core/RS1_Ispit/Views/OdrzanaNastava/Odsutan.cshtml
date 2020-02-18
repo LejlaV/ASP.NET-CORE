@@ -1,0 +1,31 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model OdrzaniCasDetaljiEditVM
+@{
+    ViewData["Title"] = "Odsutan";
+}
+
+    <form asp-controller="OdrzanaNastava" asp-action="SaveEdit"
+          class="form-group" ajax-poziv="da" ajax-rezultat="ajaxDiv" method="post">
+
+        <input asp-for="@Model.OdrzaniCasDetaljiID" hidden />
+
+        <div class="form-group">
+            <label>Ucenik</label>
+            <input type="text" asp-for="@Model.Ucenik" class="form-control" readonly />
+        </div>
+
+        <div class="form-group">
+            <label>Napomena</label>
+            <input type="text" asp-for="@Model.Napomena" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Opravdano odsutan</label>
+            <input type="checkbox" asp-for="@Model.OpravdanoOdsutan" />
+        </div>
+
+        <input type="submit" value="Sacuvaj" class="btn btn-success" />
+
+    </form>
+
+
