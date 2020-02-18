@@ -1,0 +1,73 @@
+﻿@using RS1_Ispit_asp.net_core.ViewModels
+@model MaturskiIspitStavkeIndexVM
+@{
+    ViewData["Title"] = "MaturskiIspitStavkeIndex";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ucenik</th>
+            <th>Prosjek ocjena</th>
+            <th>Pristup ispitu</th>
+            <th>Rezultat maturskog ispita</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model.Rows)
+        {
+        <tr>
+            <td>@x.Ucenik</td>
+            <td>@x.ProsjekOcjena</td>
+            <td>
+                <a asp-controller="OdrzanaNastava" asp-action="Pristup"
+                   asp-route-MaturskiIspitStavkeID="@x.MaturskiIspitStavkeID"
+                   ajax-poziv="da" ajax-rezultat="ajaxDiv">@x.PristupIspitu</a>
+            </td>
+            @if (x.PristupIspitu == "DA")
+            {
+                <td>
+                    <input type="text" value="@x.Bodovi" data-recordid="@x.MaturskiIspitStavkeID" 
+                           class="ajaxOcjena" />
+                </td>
+            }
+            else
+            {
+                <td> </td>
+            }
+            @if (x.PristupIspitu == "DA")
+            {
+                    <td>
+                        <a asp-controller="OdrzanaNastava" asp-action="StavkeEdit"
+                           asp-route-MaturskiIspitStavkeID="@x.MaturskiIspitStavkeID"
+                           ajax-poziv="da" ajax-rezultat="ajaxDiv" class="btn btn-primary">Uredi</a>
+                    </td>
+            }
+            else
+            {
+                <td> </td>
+            }
+            
+        </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+	$(document).ready(function (parameters) {
+		$(".ajaxOcjena").change(function () {
+			var id = $(this).attr('data-recordid');
+			var bodovi = $(this).val();
+			var urlZaPoziv = "/OdrzanaNastava/StavkeEditSave?MaturskiIspitStavkeID=" + id + "&Bodovi=" + bodovi;
+
+			$.ajax({
+				type: "POST",
+				url: urlZaPoziv,
+				success: function (data) {
+					$(".ajaxOcjena").html(data);
+				}
+			});
+		});
+});
+</script>
